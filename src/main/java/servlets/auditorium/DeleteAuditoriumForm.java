@@ -13,7 +13,7 @@ import dao.AuditoriumDao;
 @WebServlet("/deleteAuditoriumForm")
 public class DeleteAuditoriumForm extends HttpServlet {
 
-	private AuditoriumDao auditoriumDao;
+	private AuditoriumDao auditoriumDao = new AuditoriumDao();;
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("auditoriums", auditoriumDao.findAll());

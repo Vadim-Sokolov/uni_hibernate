@@ -33,7 +33,7 @@ public class AuditoriumDao {
 			transaction.commit();
 			auditorium.setId(id);
 		} catch (HibernateException e) {
-			throw new DaoException("Cannot create auditorium");
+			throw new DaoException("Cannot create auditorium", e);
 		}
 		return auditorium;
 	}
@@ -46,7 +46,7 @@ public class AuditoriumDao {
 			session.update(auditorium);
 			transaction.commit();
 		} catch (HibernateException e) {
-			throw new DaoException("Cannot update auditorium");
+			throw new DaoException("Cannot update auditorium", e);
 		}
 		return auditorium;
 	}
@@ -59,7 +59,7 @@ public class AuditoriumDao {
 			session.delete(auditorium);
 			transaction.commit();
 		} catch (HibernateException e) {
-			throw new DaoException("Cannot delete auditorium");
+			throw new DaoException("Cannot delete auditorium", e);
 		}
 	}
 
@@ -72,22 +72,21 @@ public class AuditoriumDao {
 			auditoriumToReturn = session.get(Auditorium.class, id);
 			transaction.commit();
 		} catch (HibernateException e) {
-			System.out.println(e.getMessage());
-			throw new DaoException("Cannot find auditorium");
+			throw new DaoException("Cannot find auditorium", e);
 		}
 		return auditoriumToReturn;
 	}
 
 	public List<Auditorium> findAll() {
 		List<Auditorium> auditoriums = new ArrayList<>();
-		Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
+		Configuration configuration = new Configuration().configure();
 		try (SessionFactory sessionFactory = configuration.buildSessionFactory();
 				Session session = sessionFactory.openSession()) {
 			Transaction transaction = session.beginTransaction();
 			auditoriums = session.createQuery("from auditoriums", Auditorium.class).getResultList();
 			transaction.commit();
 		} catch (HibernateException e) {
-			throw new DaoException("Cannot find auditoriums");
+			throw new DaoException("Cannot find auditoriums", e);
 		}
 		return auditoriums;
 	}

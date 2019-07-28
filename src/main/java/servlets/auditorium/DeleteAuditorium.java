@@ -14,7 +14,7 @@ import models.Auditorium;
 @WebServlet("/deleteAuditorium")
 public class DeleteAuditorium extends HttpServlet {
 
-	private AuditoriumDao auditoriumDao;
+	private AuditoriumDao auditoriumDao = new AuditoriumDao();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

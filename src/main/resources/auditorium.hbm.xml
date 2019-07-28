@@ -10,8 +10,8 @@
 			<generator class="identity"></generator>
 		</id>
 		
-		<property name="name" type="string" column="NAME">
-		<property name="capacity" type="int" column="CAPACITY">
+		<property name="name" column="NAME" type="string"/>
+		<property name="capacity" column="CAPACITY" type="int"/>
 	</class>
 
 </hibernate-mapping>  
