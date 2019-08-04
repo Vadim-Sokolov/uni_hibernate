@@ -8,7 +8,7 @@
 </head>
 <body>
 	<br>
-	<a href="${prefix}/auditorium/auditoriumIndex.jsp">Back</a>
+	<a href="${prefix}/hiberversity/auditorium/auditoriumIndex.jsp">Back</a>
 	<br>
 	<br> Please enter auditorium ID:
 	<br>
