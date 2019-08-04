@@ -8,7 +8,7 @@
     <c:set var="prefix" value="${pageContext.request.contextPath}"/>
 </head>
 <body>
-<a href="${prefix}/auditorium/findAuditorium.jsp">Back</a><br>
+<a href="${prefix}/hiberversity/auditorium/findAuditorium.jsp">Back</a><br>
 <br>
 	${auditorium}
 </body>

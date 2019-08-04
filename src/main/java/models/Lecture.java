@@ -2,13 +2,41 @@ package models;
 
 import java.time.LocalTime;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "LECTURES")
 public class Lecture {
 
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Integer id;
+	
+	@OneToOne
+	@JoinColumn(name = "course_id")
 	private Course course;
+	
+	@OneToOne
+	@JoinColumn(name = "auditorium_id")
 	private Auditorium auditorium;
+	
+	@OneToOne
+	@JoinColumn(name = "teacher_id")
 	private Teacher teacher;
+	
+	@OneToOne
+	@JoinColumn(name = "group_id")
 	private Group group;
+	
+	@Column
 	private LocalTime time;
 
 	public Integer getId() {

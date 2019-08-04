@@ -12,5 +12,11 @@
         <property name="format_sql">true</property>
         <!-- <property name="hbm2ddl.auto">update </property> -->
         <mapping class="models.Auditorium"/>
+        <mapping class="models.Course"/>
+        <mapping class="models.Faculty"/>
+        <mapping class="models.Group"/>
+        <mapping class="models.Lecture"/>
+        <mapping class="models.Student"/>
+        <mapping class="models.Teacher"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,11 +1,34 @@
 package models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "STUDENTS")
 public class Student {
 
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
     private Integer id;
+	
+	@Column(name = "student_card_number")
     private String studentCardNumber;
+	
+	@Column(name = "firstname")
     private String firstName;
+	
+	@Column(name = "lastname")
     private String lastName;
+	
+	@ManyToOne
+	@JoinColumn(name = "group_id")
     private Group group;
 
     public Integer getId() {

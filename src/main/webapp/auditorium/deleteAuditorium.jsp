@@ -9,7 +9,7 @@
 </head>
 <body>
 	<br>
-	<a href="${prefix}/univer/auditorium/auditoriumIndex.jsp">Back</a>
+	<a href="${prefix}/auditorium/auditoriumIndex.jsp">Back</a>
 	<br>
 	<br>
 	<br>

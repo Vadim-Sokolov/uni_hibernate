@@ -83,7 +83,7 @@ public class AuditoriumDao {
 		try (SessionFactory sessionFactory = configuration.buildSessionFactory();
 				Session session = sessionFactory.openSession()) {
 			Transaction transaction = session.beginTransaction();
-			auditoriums = session.createQuery("from auditoriums", Auditorium.class).getResultList();
+			auditoriums = session.createQuery("from Auditorium", Auditorium.class).getResultList();
 			transaction.commit();
 		} catch (HibernateException e) {
 			throw new DaoException("Cannot find auditoriums", e);

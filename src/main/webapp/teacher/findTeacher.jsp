@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page isELIgnored="false" %>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Teacher</title>
 </head>
 <body><br>
-<a href="${prefix}/univer/teacher/teacherIndex.jsp">Back</a><br><br>
+<a href="${prefix}/hiberversity/teacher/teacherIndex.jsp">Back</a><br><br>
 Please enter teacher ID:<br>
 <br>
 <form action="${pageContext.request.contextPath}/findTeacher">

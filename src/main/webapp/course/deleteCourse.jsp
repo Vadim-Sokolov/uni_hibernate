@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page isELIgnored="false" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
@@ -7,7 +8,7 @@
 <title>Delete Course</title>
 </head>
 <body><br>
-<a href="${prefix}/univer/course/courseIndex.jsp">Back</a><br><br>
+<a href="${prefix}/hiberversity/course/courseIndex.jsp">Back</a><br><br>
 <br>
 <form action="${pageContext.request.contextPath}/deleteCourse">
 	Select Course: 
