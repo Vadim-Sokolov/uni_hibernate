@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.HibernateException;
+import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -88,5 +89,18 @@ public class FacultyDao {
 			throw new DaoException("Cannot find faculties", e);
 		}
 		return faculties;
+	}
+	
+	public void deleteForTesting() {
+		Configuration configuration = new Configuration().configure();
+		try (SessionFactory sessionFactory = configuration.buildSessionFactory();
+				Session session = sessionFactory.openSession()) {
+			Transaction transaction = session.beginTransaction();
+			Query query = session.createQuery("delete Faculty WHERE name = 'testFaculty'");
+			query.executeUpdate();
+			transaction.commit();
+		} catch (HibernateException e) {
+			throw new DaoException("Cannot delete faculty", e);
+		}
 	}
 }

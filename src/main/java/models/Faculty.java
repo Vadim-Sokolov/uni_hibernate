@@ -3,13 +3,16 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "FACULTIES")
@@ -23,7 +26,9 @@ public class Faculty {
 	@Column(name = "faculty_name")
     private String name;
 	
-	@Transient
+	@OneToMany()
+	@JoinTable(name = "GROUPS",
+			joinColumns = @JoinColumn( name="faculty_id"))
     private List<Group> groups = new ArrayList<>();
 
     public Integer getId() {

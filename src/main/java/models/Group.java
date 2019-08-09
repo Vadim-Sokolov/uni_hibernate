@@ -6,13 +6,18 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 @Entity
 @Table(name = "GROUPS")
@@ -30,9 +35,11 @@ public class Group {
 	@Column(name = "group_name")
     private String name;
     
-    @Transient
+	@OneToMany()
+	@JoinTable(name = "STUDENTS",
+	joinColumns = @JoinColumn( name="group_id"))
     private List<Student> students = new ArrayList<>();
-
+    
     public Integer getId() {
         return id;
     }
