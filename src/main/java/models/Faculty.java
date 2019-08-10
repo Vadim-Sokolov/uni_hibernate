@@ -26,9 +26,7 @@ public class Faculty {
 	@Column(name = "faculty_name")
     private String name;
 	
-	@OneToMany()
-	@JoinTable(name = "GROUPS",
-			joinColumns = @JoinColumn( name="faculty_id"))
+	@OneToMany(mappedBy = "faculty")
     private List<Group> groups = new ArrayList<>();
 
     public Integer getId() {

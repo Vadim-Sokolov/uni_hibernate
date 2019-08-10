@@ -35,9 +35,7 @@ public class Group {
 	@Column(name = "group_name")
     private String name;
     
-	@OneToMany()
-	@JoinTable(name = "STUDENTS",
-	joinColumns = @JoinColumn( name="group_id"))
+	@OneToMany(mappedBy = "group")
     private List<Student> students = new ArrayList<>();
     
     public Integer getId() {
